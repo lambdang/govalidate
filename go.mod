@@ -1,3 +1,3 @@
-module github.com/lambdang/govalidategovalidate
+module github.com/lambdang/govalidate
 
 go 1.13
