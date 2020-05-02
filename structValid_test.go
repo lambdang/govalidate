@@ -1,15 +1,20 @@
-#go 参数验证
+package govalidate
 
-## eg
-```
-    //验证结构体
-    type A struct{
-        Name string `json:"name" valid:"require;max=2;min=2" name:"姓名"`
-        Age int`json:"age" valid:"require;max=11;min=2" name:"年龄"`
-        Level string `json:"level" valid:"choice=1,2,3"`
-    }
-    
-    //使用
+import (
+	"testing"
+	"fmt"
+)
+
+
+type A struct{
+	Name string `json:"name" valid:"require;max=2;min=2" name:"姓名"`
+	Age int`json:"age" valid:"require;max=11;min=2" name:"年龄"`
+	Level string `json:"level" valid:"choice=1,2,3"`
+}
+
+
+func TestName(t *testing.T) {
+
 	a:=A{}
 	a.Name = "d"
 	a.Age = 1
@@ -30,5 +35,4 @@
 	//PHONE = "phone" //手机号
 	//EMAIL = "email"  //email
 	//需要其他验证可自行添加
-	
-```
+}
