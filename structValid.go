@@ -8,10 +8,10 @@ import (
 
 
 
-func ValidStruct(stc interface{},validEn ...ValidStore)(map[string]string,bool){
+func ValidStruct(stc interface{},validEn ...ValidStore)(map[string]interface{},bool){
 	fields := reflect.TypeOf(stc).Elem()
 	values := reflect.ValueOf(stc).Elem()
-	_errors := map[string]string{}
+	_errors := map[string]interface{}{}
 	isok := true
 	var validManager ValidStore
 	if len(validEn)!=0{
