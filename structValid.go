@@ -30,6 +30,9 @@ func ValidStruct(stc interface{},validEn ...ValidStore)(map[string]interface{},b
 
 		fieldName := field.Name //struct的name
 		JsonName := strings.Split(jsonTag,",")[0]
+		if JsonName == ""{
+			JsonName = fieldName
+		}
 		if validRule!=""{ //需要验证
 			mapRule,err:=ParseRule(validRule)
 			if err!=nil{
